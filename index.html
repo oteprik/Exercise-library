@@ -356,8 +356,25 @@ function render(){
       const src='https://www.facebook.com/plugins/video.php?height=476&href='+encodeURIComponent(v.url)+'&show_text=false&width=267&t=0';
       media=`<iframe src="${src}" width="267" height="476" style="display:block;margin:auto;border:none"></iframe>`;
    }else{
-      media=`<div style="height:120px;border:2px dashed #bbb;display:flex;align-items:center;justify-content:center;text-align:center"><a target="_blank" href="${v.url}">Otevřít Reel</a></div>`;
-   }
+   media=`
+    <div style="
+      height:476px;
+      border:2px dashed #bbb;
+      border-radius:8px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+    ">
+    <div style="font-size:48px;">🎬</div>
+    <div>Embed momentálně není dostupný.</div>
+    <a target="_blank" href="${v.url}">
+        Otevřít Reel
+    </a>
+    </div>`;
+    }
    c.innerHTML=`
    <div class="meta"><span class="score" data-score="${v.url}">❤️ ${score(v)}</span><a target="_blank" href="${v.url}">${v.title}</a><span>${v.hasEmbed?'🎬':'🔗'}</span></div>
    ${media}
