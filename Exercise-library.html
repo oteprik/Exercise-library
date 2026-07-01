@@ -1,0 +1,309 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cvičení</title><style>
+body{font-family:Arial;margin:0;background:#eef3f8}header{background:#2d6cdf;color:#fff;padding:16px;text-align:center}
+#grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;padding:18px}
+.card{background:#fff;border-radius:12px;padding:12px;box-shadow:0 2px 8px #0002}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:#666}
+.note{margin-top:8px;border:1px dashed #bbb;padding:8px;min-height:50px;white-space:pre-wrap}
+h3{text-align:center}
+</style></head><body>
+<header><h2>Cvičení s Kačkou</h2></header>
+<div id="grid"></div>
+<script>
+const videos=[
+{
+title:'Cvik 1',
+url:'https://www.facebook.com/reel/3300280583445948',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 2',
+url:'https://www.facebook.com/reel/1083605913700393',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 3',
+url:'https://www.facebook.com/reel/1164855805584341',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 4',
+url:'https://www.facebook.com/reel/3298203397011984',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 5',
+url:'https://www.facebook.com/reel/1781046092527460',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 6',
+url:'https://www.facebook.com/reel/4024581774519597',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 7',
+url:'https://www.facebook.com/reel/1374617964374546',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 8',
+url:'https://www.facebook.com/reel/1889218975308499',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 9',
+url:'https://www.facebook.com/reel/760978066819813',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 10',
+url:'https://www.facebook.com/reel/1088269960043730',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 11',
+url:'https://www.facebook.com/reel/837224822188120',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 12',
+url:'https://www.facebook.com/reel/784584417370688',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 13',
+url:'https://www.facebook.com/reel/798336756415669',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 14',
+url:'https://www.facebook.com/reel/800648292374422',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 15',
+url:'https://www.facebook.com/reel/1763110664389588',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 16',
+url:'https://www.facebook.com/reel/24139264229048718',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 17',
+url:'https://www.facebook.com/reel/1708426116688312',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvik 18',
+url:'https://www.facebook.com/reel/774375425418947',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Cvik 19',
+url:'https://www.facebook.com/reel/2686289388379761',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Vstávání bez bolesti',
+url:'https://www.facebook.com/reel/2053102672096355',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Zvedání nohou za hlavu',
+url:'https://www.facebook.com/reel/1546684019793886',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Plank',
+url:'https://www.facebook.com/reel/816294054897723',
+rating:95,
+hasEmbed:true,
+notes:'Kačku baví'
+},
+{
+title:'Cvik 24',
+url:'https://www.facebook.com/reel/1316112736944787',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Skákání',
+url:'https://www.facebook.com/reel/863373356448700',
+rating:90,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Tlačení zad dolů',
+url:'https://www.facebook.com/reel/1099282475657093',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Dynamika pohybu',
+url:'https://www.facebook.com/reel/1588821172361137',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Anička',
+url:'https://www.facebook.com/reel/1586902002353401',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Zlepšení kulatých zad',
+url:'https://www.facebook.com/reel/2004183866802635',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Balony a šedá deska',
+url:'https://www.facebook.com/reel/4285048425108904',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Most',
+url:'https://www.facebook.com/reel/1468581868147643',
+rating:80,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Skákání 2',
+url:'https://www.facebook.com/reel/26770921852491518',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Výtah pro zvířátka',
+url:'https://www.facebook.com/reel/980535611100806',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Na krk dopředu a kulatá ramena',
+url:'https://www.facebook.com/reel/2180991119143117',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Posilovací hry s míčem',
+url:'https://www.facebook.com/reel/1279565970553031',
+rating:50,
+hasEmbed:false,
+notes:''
+},
+{
+title:'Klik kolíčky a kruh',
+url:'https://www.facebook.com/reel/801936929628102',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cviky z hadice na plavání - sed leh',
+url:'https://www.facebook.com/reel/3454492464697844',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Předávání balónu v sedě za zády',
+url:'https://www.facebook.com/reel/819492041208221',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Most a pod ním posílání myčky',
+url:'https://www.facebook.com/reel/1296148968695780',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Mozková posilovna',
+url:'https://www.facebook.com/reel/1310803560379298',
+rating:50,
+hasEmbed:true,
+notes:''
+},
+{
+title:'Cvičení s kroužky',
+url:'https://www.facebook.com/reel/2084673118958844',
+rating:50,
+hasEmbed:false,
+notes:''
+}
+];
+videos.sort((a,b)=>b.rating-a.rating||Number(b.hasEmbed)-Number(a.hasEmbed));
+const g=document.getElementById('grid');
+videos.forEach(v=>{
+const c=document.createElement('div');c.className='card';
+let media='';
+if(v.hasEmbed){
+const src='https://www.facebook.com/plugins/video.php?height=476&href='+encodeURIComponent(v.url)+'&show_text=false&width=267&t=0';
+media=`<iframe src="${src}" width="267" height="476" style="display:block;margin:auto;border:none"></iframe>`;
+} else {
+media=`<div style="height:476px;border:2px dashed #bbb;display:flex;align-items:center;justify-content:center;text-align:center"><a target="_blank" href="${v.url}">Otevřít Reel</a></div>`;
+}
+c.innerHTML=`<div class="meta"><span>⭐ ${v.rating}</span><span>${v.hasEmbed?'🎬':'🔗'}</span></div><h3><a target="_blank" href="${v.url}">${v.title}</a></h3>${media}<div class="note">${v.notes}</div>`;
+g.appendChild(c);
+});
+</script></body></html>
